@@ -2,7 +2,7 @@ import discord
 from misc import misc
 from discord.ext import commands, tasks
 
-client = commands.Bot(command_prefix = "!", case_insensitive=True)
+client = commands.Bot(command_prefix = "?", case_insensitive=True)
 client.remove_command('help')
 
 miscFunctions = misc()
