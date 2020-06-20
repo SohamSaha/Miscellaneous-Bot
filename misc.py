@@ -1,12 +1,10 @@
-import json, random, os
+import json, random
 
 class misc():
 
-    def clientToken(self):
-        return (os.environ['DISCORD_TOKEN'])
-
     def randomDice(self):
-        return (random.randint(0,6))
+        number = random.randint(0,6)
+        return (str(number))
 
     def randomCoin(self):
 
