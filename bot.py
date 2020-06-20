@@ -1,11 +1,12 @@
 import discord
 #from misc import misc
 from discord.ext import commands, tasks
+import os
 
 client = commands.Bot(command_prefix = "?", case_insensitive=True)
 client.remove_command('help')
 
-#miscFunctions = misc()
+
 
 @client.event
 async def on_ready():
@@ -49,4 +50,4 @@ async def on_ready():
 #     await author.send(embed=embed)
 
 
-client.run(miscFunctions.clientToken())
+client.run(os.environ['DISCORD_TOKEN'])
