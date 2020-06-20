@@ -57,7 +57,7 @@ async def help(ctx):
 @client.command()
 async def callout(ctx):
     author = ctx.message.author
-    await ctx.send(author)
+    await ctx.send(author.id)
     
 
 #Fucking worst command
