@@ -1,4 +1,6 @@
 import json, random
+from datetime import date, time, datetime
+import constants
 
 class misc():
 
@@ -14,6 +16,12 @@ class misc():
         else:
             return ('Tails')
 
+    def quitter(self):
+        d = date.today()
+        e = date(year=constants.QUITTER_YEAR, month=constants.QUITTER_MONTH, day=constants.QUITTER_DAY)
+        delta = d-e
+        return (delta.days)
+
     def londaQuotes(self):
         file = open('quotes.json') 
         with file as f:
@@ -28,3 +36,6 @@ class misc():
                     return ('String', references['content'])
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
+
+myObject = misc()
+myObject.quitter()

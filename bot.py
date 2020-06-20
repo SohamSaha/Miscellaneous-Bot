@@ -1,7 +1,7 @@
-import discord
+import discord, os
 from misc import misc
 from discord.ext import commands, tasks
-import os
+
 
 miscFunctions = misc()
 
@@ -44,9 +44,13 @@ async def help(ctx):
 
     await author.send(embed=embed)
 
+@client.command()
+async def quitter(ctx):
+    await ctx.send('```' + miscFunctions.quitter() + ' days since the fall```')
+
 @client.event
 async def on_command_error(ctx,error):
     if isinstance(error, commands.CommandNotFound):
-        await ctx.send('That is not a valid command. Type in !help to see all the commands')
+        await ctx.send('That is not a valid command. Type in ?help to see all the commands')
 
 client.run(os.environ['DISCORD_TOKEN'])
