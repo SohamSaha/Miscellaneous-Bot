@@ -57,13 +57,10 @@ async def help(ctx):
 
 @client.command()
 async def callout(ctx):
-    if ctx.message.author == client.user:
-        return
-    elif ctx.message.content.startswith('!punch'):
-        user = ctx.message.mentions[0]
-        responses = ['DANG ' + user.mention + ' just got punched!', 'LOOK OUT ' + user.mention + ' just got knocked out! ლ(ಠ益ಠლ)', 'trong uppercut right in ' + user.mention + 's chin']
-        choice = random.choice(responses)
-        await ctx.send(ctx.message.channel, choice)
+    user = ctx.message.mentions[0]
+    responses = ['DANG ' + user.mention + ' just got punched!', 'LOOK OUT ' + user.mention + ' just got knocked out! ლ(ಠ益ಠლ)', 'trong uppercut right in ' + user.mention + 's chin']
+    choice = random.choice(responses)
+    await ctx.send(ctx.message.channel, choice)
     
 
 #Fucking worst command
