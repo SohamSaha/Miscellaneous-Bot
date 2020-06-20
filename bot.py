@@ -57,6 +57,7 @@ async def help(ctx):
 @client.command()
 async def callout(ctx):
     author = ctx.message.author
+    user = message.mentions[0]
     await ctx.send(author.id)
     
 
