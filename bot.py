@@ -46,7 +46,7 @@ async def help(ctx):
 
 @client.command()
 async def quitter(ctx):
-    await ctx.send('```' + miscFunctions.quitter() + ' days since the fall```')
+    await ctx.send(miscFunctions.quitter())
 
 @client.event
 async def on_command_error(ctx,error):

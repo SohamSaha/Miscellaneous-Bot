@@ -36,6 +36,3 @@ class misc():
                     return ('String', references['content'])
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
-
-myObject = misc()
-myObject.quitter()
