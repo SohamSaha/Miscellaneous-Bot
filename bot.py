@@ -1,6 +1,7 @@
 import discord, os
 from misc import misc
 from discord.ext import commands, tasks
+import random
 
 
 miscFunctions = misc()
@@ -56,9 +57,13 @@ async def help(ctx):
 
 @client.command()
 async def callout(ctx):
-    author = ctx.message.author
-    user = message.mentions[0]
-    await ctx.send(author.id)
+    if ctx.message.author == client.user:
+        return
+    elif ctx.message.content.startswith('!punch'):
+        user = ctx.message.mentions[0]
+        responses = ['DANG ' + user.mention + ' just got punched!', 'LOOK OUT ' + user.mention + ' just got knocked out! ლ(ಠ益ಠლ)', 'trong uppercut right in ' + user.mention + 's chin']
+        choice = random.choice(responses)
+        await ctx.send(ctx.message.channel, choice)
     
 
 #Fucking worst command
