@@ -56,7 +56,7 @@ async def help(ctx):
     await author.send(embed=embed)
 
 @client.command()
-async def callout(ctx, target: discord.Member, reason):
+async def callout(ctx, target: discord.Member, *, reason):
     await ctx.send(target.mention + ' has been called out for ' + str(reason))
     
 
