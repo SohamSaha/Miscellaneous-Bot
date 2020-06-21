@@ -56,7 +56,7 @@ async def help(ctx):
     await author.send(embed=embed)
 
 @client.command(pass_context = True)
-async def callout(ctx, target):
+async def callout(ctx, target: discord.Member):
     await ctx.send(ctx.message.target.mention)
     
 
