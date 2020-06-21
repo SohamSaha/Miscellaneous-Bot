@@ -55,9 +55,9 @@ async def help(ctx):
 
     await author.send(embed=embed)
 
-@client.command()
-async def callout(ctx):
-    await ctx.send(ctx.message.author.mention)
+@client.command(pass_context = True)
+async def callout(ctx, target):
+    await ctx.send(ctx.message.target.mention)
     
 
 #Fucking worst command

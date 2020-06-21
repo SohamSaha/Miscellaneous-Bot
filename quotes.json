@@ -19,6 +19,11 @@
             "id": "4",
             "type": "string",
             "content": "I like to pee in the park"
+        },
+        {
+            "id": "5",
+            "type": "picture",
+            "content": "https://cdn.discordapp.com/attachments/696187209761685567/724071782004555816/uke-cuum.png"
         }
     ]
 }
