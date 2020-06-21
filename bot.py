@@ -57,7 +57,7 @@ async def help(ctx):
 
 @client.command()
 async def callout(ctx):
-    await ctx.send("@{} :cookie:".format(ctx.message.author.id))
+    await ctx.send(ctx.message.author.mention)
     
 
 #Fucking worst command
