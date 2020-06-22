@@ -3,7 +3,7 @@ import constants
 from datetime import date, time, datetime
 from github import Github
 
-g = Github('0fc75f419a4ddd47e37d5948d24e474b736c3e22')
+g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
 
 class misc():
 
@@ -39,9 +39,8 @@ class misc():
         elif (user not in data):
             data[user]=[{}]
             data[user][0]['0']= str(callout)
-            result = json.dumps(data)
-            
-            repo.update_file(contents, 'testing upload', result, result)
+            result = json.dumps(data)            
+            repo.update_file(contents.path, 'testing upload', result, contents.sha)
             
 
     def calloutAll(self, user, callout):
@@ -75,6 +74,3 @@ class misc():
                     return ('String', references['content'])
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
-
-myobject = misc()
-myobject.githubWrite('TestUser3','hello')
