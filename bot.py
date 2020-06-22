@@ -43,13 +43,14 @@ async def londa(ctx):
 
 @client.command()
 async def callout(ctx, target: discord.Member, *, reason):
-    await ctx.send(target.mention + ' has been called out for ' + '_**```' + str(reason) + '```**_')
+    await ctx.send(target.mention + ' has been called out for ' + '_**```def\n' + '- ' + str(reason) + '```**_')
 
 @callout.error
 async def calloutError(ctx,error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('You forgot to mention somebody or give a reason to call them out. Check ?help for a list of commands and how to use them')
 
+#send list of 10 most recent callouts of the person
 @client.command()
 async def calloutall(ctx):
     pass
@@ -59,6 +60,7 @@ async def calloutallError(ctx,error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('You forgot to mention somebody. Check ?help for a list of commands and how to use them')
 
+#get puns
 @client.command()
 async def tanyo(ctx):
     pass
