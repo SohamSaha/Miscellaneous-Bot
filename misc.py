@@ -1,10 +1,9 @@
 import json, random, os
-import requests, base64
 import constants
 from datetime import date, time, datetime
 from github import Github
 
-g = Github(os.environ['GITHUB_TOKEN'])
+g = Github('46eaf68b339d2ae6ff65be1939c1e5d3f5ff4b03')
 
 class misc():
 
@@ -27,17 +26,40 @@ class misc():
         return (delta.days)
     
     def githubWrite(self, user, callout):
-        
-        url = constants.CALLOUT_FILE_URL
-        req = requests.get(url)
-    
-        req = req.json()
-                        
+                      
         repo = g.get_repo(constants.REPOSITORY_NAME)
-        contents = repo.get_contents('quotes.json')
-        repo.create_file('test.json', 'test', contents.decoded_content)
+        contents = repo.get_contents('test.json')
+        testContent = contents.decoded_content.decode('utf8')
+        data = json.loads(testContent)
+        if (user in data):
+            count = len(data[user][0]) - 1
+            while (count != -1):
+                print (data[user][0][str(count)])
+                count -= 1
+        elif (user not in data):
+            data[user]=[{}]
+            data[user][0]['0']= str(callout)
+            result = json.dumps(data)
+            
+            repo.update_file(contents.path, 'testing upload', result, result)
             
 
+    def calloutAll(self, user, callout):
+
+        callOutList = []
+        repo = g.get_repo(constants.REPOSITORY_NAME)
+        contents = repo.get_contents('test.json')
+        testContent = contents.decoded_content.decode('utf8')
+        data = json.loads(testContent)
+
+        if (user in data):
+            count = len(data[user][0]) - 1
+            while (count != -1):
+                callOutList.append(data[user][0][str(count)])
+                count -= 1
+            return(callOutList)
+        elif (user not in data):
+            return ('This user has not been called out yet')
 
     def londaQuotes(self):
         file = open('quotes.json') 
@@ -54,5 +76,5 @@ class misc():
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
 
-# myobject = misc()
-# myobject.githubWrite('Test1','hello')
+myobject = misc()
+myobject.githubWrite('TestUser3','hello')
