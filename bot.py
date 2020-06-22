@@ -63,9 +63,9 @@ async def calloutallError(ctx,error):
 async def tanyo(ctx):
     pass
 
-@client.command()
-async def github(ctx):
-    await ctx.send(miscFunctions.githubTest())
+# @client.command()
+# async def github(ctx):
+#     await ctx.send(miscFunctions.githubTest())
 
 #Fucking worst command
 @client.command()

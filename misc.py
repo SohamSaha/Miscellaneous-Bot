@@ -1,4 +1,5 @@
 import json, random, os
+import requests, base64
 import constants
 from datetime import date, time, datetime
 from github import Github
@@ -25,13 +26,17 @@ class misc():
         delta = d-e
         return (delta.days)
     
-    def githubTest(self):
+    def githubWrite(self, user, callout):
+        
+        url = constants.CALLOUT_FILE_URL
+        req = requests.get(url)
+    
+        req = req.json()
+                        
         repo = g.get_repo(constants.REPOSITORY_NAME)
-        return (str(repo))
-
-        # repo.create_file("test.txt", "test", "test")
-        # contents = repo.get_contents("test.txt")
-        # repo.delete_file(contents.path, "remove test", contents.sha)
+        contents = repo.get_contents('quotes.json')
+        repo.create_file('test.json', 'test', contents.decoded_content)
+            
 
 
     def londaQuotes(self):
@@ -48,3 +53,6 @@ class misc():
                     return ('String', references['content'])
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
+
+# myobject = misc()
+# myobject.githubWrite('Test1','hello')
