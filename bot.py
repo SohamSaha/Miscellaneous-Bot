@@ -43,7 +43,7 @@ async def londa(ctx):
 
 @client.command()
 async def callout(ctx, target: discord.Member, *, reason):
-    await ctx.send(target.mention + ' has been called out for ' + '_**```def\n' + '- ' + str(reason) + '```**_')
+    await ctx.send(target.mention + ' has been called out for ' + '_**```diff\n' + '- ' + str(reason) + '```**_')
 
 @callout.error
 async def calloutError(ctx,error):
