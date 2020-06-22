@@ -3,7 +3,7 @@ import constants
 from datetime import date, time, datetime
 from github import Github
 
-g = Github('46eaf68b339d2ae6ff65be1939c1e5d3f5ff4b03')
+g = Github('0fc75f419a4ddd47e37d5948d24e474b736c3e22')
 
 class misc():
 
@@ -41,7 +41,7 @@ class misc():
             data[user][0]['0']= str(callout)
             result = json.dumps(data)
             
-            repo.update_file(contents.path, 'testing upload', result, result)
+            repo.update_file(contents, 'testing upload', result, result)
             
 
     def calloutAll(self, user, callout):
