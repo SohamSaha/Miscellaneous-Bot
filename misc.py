@@ -31,19 +31,28 @@ class misc():
         contents = repo.get_contents('test.json')
         testContent = contents.decoded_content.decode('utf8')
         data = json.loads(testContent)
+        count = 0
+        
         if (user in data):
-            count = len(data[user][0]) - 1
-            while (count != -1):
-                print (data[user][0][str(count)])
-                count -= 1
+            calloutLength = len(data[user][0])
+            if (calloutLength == 3):
+                while (count < calloutLength):
+                    data[user][0][str(count + 1)] = data[user].pop(str(count))
+                    count += 1
+                print (data)
+            else:
+                data[user][0][str(len(data[user][0]))] = str(callout)
+                result = json.dumps(data)
+                print(result)
         elif (user not in data):
             data[user]=[{}]
             data[user][0]['0']= str(callout)
             result = json.dumps(data)            
-            repo.update_file(contents.path, 'testing upload', result, contents.sha)
+            print(result)
+            # repo.update_file(contents.path, 'Updated with new user', result, contents.sha)
             
 
-    def calloutAll(self, user, callout):
+    def calloutAll(self, user):
 
         callOutList = []
         repo = g.get_repo(constants.REPOSITORY_NAME)
@@ -59,6 +68,17 @@ class misc():
             return(callOutList)
         elif (user not in data):
             return ('This user has not been called out yet')
+
+    def puns(self):
+
+        file = open('puns.json') 
+        with file as f:
+            data = json.load(f)
+        file.close()
+        
+        number = random.randint(1,len(data['Puns'][0]))
+        for item in data['Puns']:
+            return (item[str(number)])
 
     def londaQuotes(self):
         file = open('quotes.json') 

@@ -63,7 +63,7 @@ async def calloutallError(ctx,error):
 #get puns
 @client.command()
 async def tanyo(ctx):
-    pass
+    await ctx.send('```' + miscFunctions.puns + '```')
 
 # @client.command()
 # async def github(ctx):
