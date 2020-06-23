@@ -63,7 +63,7 @@ async def calloutallError(ctx,error):
 #get puns
 @client.command()
 async def tanyo(ctx):
-    id = '<@92846320900915200'
+    id = '<@92846320900915200>'
     await ctx.send(id + '```' + miscFunctions.puns() + '```')
 
 # @client.command()
