@@ -32,7 +32,7 @@ class misc():
         testContent = contents.decoded_content.decode('utf8')
         data = json.loads(testContent)
         count = 0
-        
+
         if (user in data):
             calloutLength = len(data[user][0])
             if (calloutLength == 3):
@@ -78,7 +78,7 @@ class misc():
         
         number = random.randint(1,len(data['Puns'][0]))
         for item in data['Puns']:
-            return (item[str(number)])
+            return (str(item[str(number)]))
 
     def londaQuotes(self):
         file = open('quotes.json') 
