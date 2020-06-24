@@ -5,7 +5,6 @@ from github import Github
 
 g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
 
-
 class misc():
 
     def randomDice(self):
@@ -66,8 +65,8 @@ class misc():
         data = json.loads(testContent)
 
         if (user in data):
-            count = len(data[user][0]) - 1
-            while (count != -1):
+            count = len(data[user][0])
+            while (count != 0):
                 callOutList.append(data[user][0][str(count)])
                 count -= 1
             return(callOutList)
