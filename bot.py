@@ -55,8 +55,7 @@ async def calloutError(ctx,error):
 #send list of 10 most recent callouts of the person
 @client.command()
 async def calloutall(ctx, target:discord.Member):
-    await ctx.send(miscFunctions.calloutAll(target))
-    pass
+    await ctx.send('target:' + target + 'heres the function: ' + miscFunctions.calloutAll(target))
 
 @calloutall.error
 async def calloutallError(ctx,error):
