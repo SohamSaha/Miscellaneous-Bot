@@ -38,7 +38,7 @@ class misc():
             calloutLength = len(data[user][0])
             data['temp']=[{}]
             if (calloutLength == 6):
-                while (count != 3): 
+                while (count != 6): 
                     for users in data[user]:
                         data['temp'][0][str(count)] = users[str(count + 1)]
                         count+=1
