@@ -43,11 +43,8 @@ async def londa(ctx):
         await ctx.send(embed=embed)
 
 @client.command()
-async def targettest(ctx, target: discord.Member):
-    await ctx.send('here is the target: ' + str(target))
-
-@client.command()
 async def callout(ctx, target: discord.Member, *, reason):
+    miscFunctions.githubWrite(str(target), str(reason))
     await ctx.send(target.mention + ' has been called out for ' + '_**```diff\n' + '- ' + str(reason) + '```**_')
 
 @callout.error
