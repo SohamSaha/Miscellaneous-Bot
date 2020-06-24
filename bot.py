@@ -43,6 +43,10 @@ async def londa(ctx):
         await ctx.send(embed=embed)
 
 @client.command()
+async def targettest(ctx, target: discord.Member):
+    await ctx.send('here is the target: ' + target)
+
+@client.command()
 async def callout(ctx, target: discord.Member, *, reason):
     await ctx.send(target.mention + ' has been called out for ' + '_**```diff\n' + '- ' + str(reason) + '```**_')
 
@@ -53,7 +57,8 @@ async def calloutError(ctx,error):
 
 #send list of 10 most recent callouts of the person
 @client.command()
-async def calloutall(ctx):
+async def calloutall(ctx, target:discord.Member):
+    await ctx.send(miscFunctions.calloutAll(target))
     pass
 
 @calloutall.error
@@ -65,10 +70,6 @@ async def calloutallError(ctx,error):
 @client.command()
 async def tanyo(ctx):
     await ctx.send(constants.PUN_TARGET + '```' + miscFunctions.puns() + '```')
-
-# @client.command()
-# async def github(ctx):
-#     await ctx.send(miscFunctions.githubTest())
 
 #Fucking worst command
 @client.command()

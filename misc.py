@@ -3,8 +3,8 @@ import constants
 from datetime import date, time, datetime
 from github import Github
 
-# g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
-g = Github("SohamSaha", "J28pyts$")
+g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
+
 
 class misc():
 
@@ -32,26 +32,34 @@ class misc():
         contents = repo.get_contents('test.json')
         testContent = contents.decoded_content.decode('utf8')
         data = json.loads(testContent)
-        # count = 0
-        calloutLength = len(data[user][0])
+        count = 1
+        
 
         if (user in data):
-            if (calloutLength == 3):            
-                print(data)                
-                for users in data[user]:
-                    users['5']=users.pop('1')
-                    if ('1') in users:
-                        print('hi')
-                    
+            calloutLength = len(data[user][0])
+            data['temp']=[{}]
+            if (calloutLength == 6):
+                print(data)           
+                while (count != 3): 
+                    for users in data[user]:
+                        data['temp'][0][str(count)] = users[str(count + 1)]
+                        count+=1
+                                
+                print(data)
+                data['temp'][0][str(calloutLength)] = callout
+                data[user]=data.pop('temp')
+                result = json.dumps(data)
 
-                print (data)
+                print (result)
             else:
-                data[user][0][str(len(data[user][0]))] = str(callout)
+                data.pop('temp')
+                data[user][0][str(len(data[user][0])+1)] = str(callout)
                 result = json.dumps(data)
                 print(result)
+            # repo.update_file(contents.path, 'Updated with new content', result, contents.sha)
         elif (user not in data):
             data[user]=[{}]
-            data[user][0]['0']= str(callout)
+            data[user][0]['1']= str(callout)
             result = json.dumps(data)            
             print(result)
             # repo.update_file(contents.path, 'Updated with new user', result, contents.sha)
