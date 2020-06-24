@@ -3,7 +3,8 @@ import constants
 from datetime import date, time, datetime
 from github import Github
 
-g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
+# g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
+g = Github("SohamSaha", "J28pyts$")
 
 class misc():
 
@@ -68,7 +69,8 @@ class misc():
             while (count != 0):
                 callOutList.append(data[user][0][str(count)])
                 count -= 1
-            return(callOutList)
+            separated="\n".join(callOutList[0:])
+            return(separated)
         elif (user not in data):
             return ('This user has not been called out yet')
 
@@ -97,3 +99,6 @@ class misc():
                     return ('String', references['content'])
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
+
+miscObjects = misc()
+print(miscObjects.calloutAll('TestUser1'))
