@@ -44,7 +44,7 @@ async def londa(ctx):
 
 @client.command()
 async def targettest(ctx, target: discord.Member):
-    await ctx.send('here is the target: ' + target)
+    await ctx.send('here is the target: ' + str(target))
 
 @client.command()
 async def callout(ctx, target: discord.Member, *, reason):
