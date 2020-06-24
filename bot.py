@@ -55,7 +55,7 @@ async def calloutError(ctx,error):
 #send list of 10 most recent callouts of the person
 @client.command()
 async def calloutall(ctx, target:discord.Member):
-    await ctx.send('```' + miscFunctions.calloutAll(str(target)) + '```')
+    await ctx.send(target.mention + ' has been called out for the following: ' +  '```'  + miscFunctions.calloutAll(str(target)) + '```')
 
 @calloutall.error
 async def calloutallError(ctx,error):
@@ -82,6 +82,9 @@ async def help(ctx):
     embed.add_field(name ='?dice', value = 'Roll a dice', inline = False)
     embed.add_field(name ='?londa', value = 'Returns a quote', inline = False)
     embed.add_field(name ='?callout', value = 'Calls your target out. Needs a target mention and a reason', inline = False)
+    embed.add_field(name ='?calloutall', value = 'Gives a list of the 10 most recent callouts of the person. Needs a target mention', inline = False)
+    embed.add_field(name ='?tanyo', value = 'Summons Tanyo with a pun', inline = False)
+    embed.add_field(name ='?quitter', value = 'The worst command', inline = False)
 
     await author.send(embed=embed)
 
