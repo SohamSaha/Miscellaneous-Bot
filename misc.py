@@ -36,8 +36,8 @@ class misc():
         if (user in data):
             calloutLength = len(data[user][0])
             data['temp']=[{}]
-            if (calloutLength == 6):
-                while (count != 6): 
+            if (calloutLength == 10):
+                while (count != 10): 
                     for users in data[user]:
                         data['temp'][0][str(count)] = users[str(count + 1)]
                         count+=1
@@ -63,8 +63,6 @@ class misc():
         contents = repo.get_contents('callouts.json')
         testContent = contents.decoded_content.decode('utf8')
         data = json.loads(testContent)
-        print(data)
-        print(user in data)
         if (user in data):
             count = len(data[user][0])
             while (count != 0):
