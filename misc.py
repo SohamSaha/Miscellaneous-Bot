@@ -3,8 +3,7 @@ import constants
 from datetime import date, time, datetime
 from github import Github
 
-# g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
-g = Github("SohamSaha", "J28pyts$")
+g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
 
 class misc():
 
@@ -99,6 +98,3 @@ class misc():
                     return ('String', references['content'])
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
-
-miscObjects = misc()
-print(miscObjects.calloutAll('TestUser1'))
