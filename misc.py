@@ -3,7 +3,8 @@ import constants
 from datetime import date, time, datetime
 from github import Github
 
-g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
+# g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
+g = Github("SohamSaha", "J28pyts$")
 
 class misc():
 
@@ -31,14 +32,18 @@ class misc():
         contents = repo.get_contents('test.json')
         testContent = contents.decoded_content.decode('utf8')
         data = json.loads(testContent)
-        count = 0
+        # count = 0
+        calloutLength = len(data[user][0])
 
         if (user in data):
-            calloutLength = len(data[user][0])
-            if (calloutLength == 3):
-                while (count < calloutLength):
-                    data[user][0][str(count + 1)] = data[user].pop(str(count))
-                    count += 1
+            if (calloutLength == 3):            
+                print(data)                
+                for users in data[user]:
+                    users['5']=users.pop('1')
+                    if ('1') in users:
+                        print('hi')
+                    
+
                 print (data)
             else:
                 data[user][0][str(len(data[user][0]))] = str(callout)
@@ -94,3 +99,6 @@ class misc():
                     return ('String', references['content'])
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
+
+myobject = misc()
+myobject.githubWrite('TestUser1','no homo')

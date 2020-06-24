@@ -1,5 +1,6 @@
 import discord, os
 from misc import misc
+import constants
 from discord.ext import commands, tasks
 import random
 
@@ -63,8 +64,7 @@ async def calloutallError(ctx,error):
 #get puns
 @client.command()
 async def tanyo(ctx):
-    id = '<@92846320900915200>'
-    await ctx.send(id + '```' + miscFunctions.puns() + '```')
+    await ctx.send(constants.PUN_TARGET + '```' + miscFunctions.puns() + '```')
 
 # @client.command()
 # async def github(ctx):
