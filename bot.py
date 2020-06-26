@@ -65,7 +65,7 @@ async def calloutallError(ctx,error):
 #get puns
 @client.command()
 async def tanyo(ctx):
-    await ctx.send(constants.PUN_TARGET + '```' + miscFunctions.puns() + '```')
+    await ctx.send(os.environ['PUN_TARGET'] + '```' + miscFunctions.puns() + '```')
 
 #Fucking worst command
 @client.command()

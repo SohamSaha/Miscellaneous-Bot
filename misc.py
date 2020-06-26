@@ -21,13 +21,13 @@ class misc():
 
     def quitter(self):
         d = date.today()
-        e = date(year=constants.QUITTER_YEAR, month=constants.QUITTER_MONTH, day=constants.QUITTER_DAY)
+        e = date(year=int(os.environ['QUITTER_YEAR']), month=int(os.environ['QUITTER_MONTH']), day=int(os.environ['QUITTER_DAY']))
         delta = d-e
         return (delta.days)
     
     def githubWrite(self, user, callout):
                       
-        repo = g.get_repo(constants.REPOSITORY_NAME)
+        repo = g.get_repo(os.environ['REPOSITORY_NAME'])
         contents = repo.get_contents('callouts.json')
         testContent = contents.decoded_content.decode('utf8')
         data = json.loads(testContent)
@@ -59,7 +59,7 @@ class misc():
     def calloutAll(self, user):
 
         callOutList = []
-        repo = g.get_repo(constants.REPOSITORY_NAME)
+        repo = g.get_repo(os.environ['REPOSITORY_NAME'])
         contents = repo.get_contents('callouts.json')
         testContent = contents.decoded_content.decode('utf8')
         data = json.loads(testContent)
