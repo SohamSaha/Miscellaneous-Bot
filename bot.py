@@ -36,6 +36,7 @@ async def londa(ctx):
 
     value = miscFunctions.londaQuotes()
     if (str(value[0]) == 'String'):
+        await ctx.send(os.environ['ROAST_TARGET'])
         await ctx.send('```' + value[1] + '```')
     elif (str(value[0]) == 'Picture'):
         embed = discord.Embed()
@@ -71,7 +72,7 @@ async def tanyo(ctx):
 #Fucking worst command
 @client.command()
 async def quitter(ctx):
-    await ctx.send('```' + str(miscFunctions.quitter()) + ' days since quitting```')
+    await ctx.send(os.environ['FUCK'] + '```' + str(miscFunctions.quitter()) + ' days since quitting and failing to vore kbbq```')
 
 #Get the list of commands
 @client.command(pass_context=True)
