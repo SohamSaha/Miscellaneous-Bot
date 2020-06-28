@@ -72,7 +72,12 @@ async def tanyo(ctx):
 #Fucking worst command
 @client.command()
 async def quitter(ctx):
-    await ctx.send(os.environ['FUCK'] + '```' + str(miscFunctions.quitter()) + ' days since quitting and failing to vore kbbq```')
+    await ctx.send(os.environ['FUCK'] + '```' + str(miscFunctions.quitter()) + ' days since quitting and failing to vore enough kbbq```')
+
+#Meme dictionary
+@client.command()
+async def dictionary(ctx):
+    await ctx.send('```' + str(miscFunctions.memeDictionary()) + '```')
 
 #Get the list of commands
 @client.command(pass_context=True)
@@ -86,6 +91,7 @@ async def help(ctx):
     embed.add_field(name ='?callout', value = 'Calls your target out. Needs a target mention and a reason', inline = False)
     embed.add_field(name ='?calloutall', value = 'Gives a list of the 10 most recent callouts of the person. Needs a target mention', inline = False)
     embed.add_field(name ='?tanyo', value = 'Summons Tanyo with a pun', inline = False)
+    embed.add_field(name ='?dictionary', value = 'Return dictionary words', inline = False)
     embed.add_field(name ='?quitter', value = 'The worst command', inline = False)
 
     await author.send(embed=embed)

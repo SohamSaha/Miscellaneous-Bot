@@ -98,3 +98,17 @@ class misc():
                     return ('String', references['content'])
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
+
+    def memeDictionary(self):
+        file = open('dictionary.json')
+        with file as f:
+            data = json.load(f)
+        file.close()
+
+        number = random.randint(1,len(data['Hella Flit Childer Talk That Is Currently Trent AF']))
+
+        for items in data['Hella Flit Childer Talk That Is Currently Trent AF']:
+            return (str(items[str(number)]))
+
+test = misc()
+print(test.memeDictionary())
