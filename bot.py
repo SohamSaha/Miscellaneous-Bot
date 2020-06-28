@@ -40,6 +40,7 @@ async def londa(ctx):
     elif (str(value[0]) == 'Picture'):
         embed = discord.Embed()
         embed.set_image(url = value[1])
+        await ctx.send(os.environ['ROAST_TARGET'])
         await ctx.send(embed=embed)
 
 @client.command()
