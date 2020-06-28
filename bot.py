@@ -76,8 +76,8 @@ async def quitter(ctx):
 
 #Meme dictionary
 @client.command()
-async def dictionary(ctx, tagline):
-    await ctx.send('```' + str(miscFunctions.memeDictionary(tagline)) + '```')
+async def dictionary(ctx):
+    await ctx.send('```' + str(miscFunctions.memeDictionary()) + '```')
 
 #Get the list of commands
 @client.command(pass_context=True)

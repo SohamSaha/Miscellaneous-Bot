@@ -99,7 +99,7 @@ class misc():
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
 
-    def memeDictionary(self, tagline):
+    def memeDictionary(self):
         file = open('dictionary.json')
         with file as f:
             data = json.load(f)
@@ -107,7 +107,7 @@ class misc():
 
         number = random.randint(1,len(data['Hella Flit Childer Talk That Is Currently Trent AF'][0]))
 
-        if (tagline != 'tagline'):
+        if (str(tagline) != 'tagline'):
             for items in data['Hella Flit Childer Talk That Is Currently Trent AF']:
                 word = (str(items[str(number)]))
         elif (tagline == 'tagline'):
