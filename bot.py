@@ -79,6 +79,10 @@ async def quitter(ctx):
 async def dictionary(ctx):
     await ctx.send('```' + str(miscFunctions.memeDictionary()) + '```')
 
+@client.command()
+async def allison(ctx):
+    await ctx.send('TBD')
+
 #Get the list of commands
 @client.command(pass_context=True)
 async def help(ctx):
