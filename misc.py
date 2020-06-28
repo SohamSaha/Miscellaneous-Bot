@@ -105,7 +105,7 @@ class misc():
             data = json.load(f)
         file.close()
 
-        number = random.randint(1,len(data['Hella Flit Childer Talk That Is Currently Trent AF']))
+        number = random.randint(1,len(data['Hella Flit Childer Talk That Is Currently Trent AF'][0]))
 
         if (tagline != 'tagline'):
             for items in data['Hella Flit Childer Talk That Is Currently Trent AF']:
