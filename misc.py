@@ -107,12 +107,7 @@ class misc():
 
         number = random.randint(1,len(data['Hella Flit Childer Talk That Is Currently Trent AF'][0]))
 
-        if (str(tagline) != 'tagline'):
-            for items in data['Hella Flit Childer Talk That Is Currently Trent AF']:
-                word = (str(items[str(number)]))
-        elif (tagline == 'tagline'):
-            word = 'Hella Flit Childer Talk That Is Currently Trent AF'
-        else:
-            word = 'what the fuck'
+        for items in data['Hella Flit Childer Talk That Is Currently Trent AF']:
+            word = (str(items[str(number)]))
 
         return(word)
