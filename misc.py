@@ -1,9 +1,9 @@
 import json, random, os
-import constants
+import constants as const
 from datetime import date, time, datetime
 from github import Github
 
-g = Github(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
+g = Github(const.GITHUB_USERNAME, const.GITHUB_PASSWORD)
 
 class misc():
 
@@ -21,13 +21,13 @@ class misc():
 
     def quitter(self):
         d = date.today()
-        e = date(year=int(os.environ['QUITTER_YEAR']), month=int(os.environ['QUITTER_MONTH']), day=int(os.environ['QUITTER_DAY']))
+        e = date(year=const.QUITTER_YEAR, month=const.QUITTER_MONTH, day=const.QUITTER_DAY)
         delta = d-e
         return (delta.days)
     
     def githubWrite(self, user, callout):
                       
-        repo = g.get_repo(os.environ['REPOSITORY_NAME'])
+        repo = g.get_repo(const.REPOSITORY_NAME)
         contents = repo.get_contents('callouts.json')
         testContent = contents.decoded_content.decode('utf8')
         data = json.loads(testContent)
@@ -59,7 +59,7 @@ class misc():
     def calloutAll(self, user):
 
         callOutList = []
-        repo = g.get_repo(os.environ['REPOSITORY_NAME'])
+        repo = g.get_repo(const.REPOSITORY_NAME)
         contents = repo.get_contents('callouts.json')
         testContent = contents.decoded_content.decode('utf8')
         data = json.loads(testContent)

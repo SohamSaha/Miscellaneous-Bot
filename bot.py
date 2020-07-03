@@ -1,6 +1,6 @@
 import discord, os
 from misc import misc
-import constants
+import constants as const
 from discord.ext import commands, tasks
 import random
 
@@ -36,12 +36,12 @@ async def londa(ctx):
 
     value = miscFunctions.londaQuotes()
     if (str(value[0]) == 'String'):
-        await ctx.send(os.environ['ROAST_TARGET'])
+        await ctx.send(const.ROAST_TARGET)
         await ctx.send('```' + value[1] + '```')
     elif (str(value[0]) == 'Picture'):
         embed = discord.Embed()
         embed.set_image(url = value[1])
-        await ctx.send(os.environ['ROAST_TARGET'])
+        await ctx.send(const.ROAST_TARGET)
         await ctx.send(embed=embed)
 
 @client.command()
@@ -67,12 +67,12 @@ async def calloutallError(ctx,error):
 #get puns
 @client.command()
 async def tanyo(ctx):
-    await ctx.send(os.environ['PUN_TARGET'] + '```' + miscFunctions.puns() + '```')
+    await ctx.send(const.PUN_TARGET + '```' + miscFunctions.puns() + '```')
 
 #Fucking worst command
 @client.command()
 async def quitter(ctx):
-    await ctx.send(os.environ['FUCK'] + '```' + str(miscFunctions.quitter()) + ' days since quitting and failing to vore enough kbbq```')
+    await ctx.send(const.QUIT_TARGET + '```' + str(miscFunctions.quitter()) + ' days since quitting and failing to vore enough kbbq```')
 
 #Meme dictionary
 @client.command()
@@ -100,4 +100,4 @@ async def help(ctx):
 
     await author.send(embed=embed)
 
-client.run(os.environ['DISCORD_TOKEN'])
+client.run(const.DISCORD_TOKEN)
