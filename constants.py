@@ -1,1 +1,0 @@
-CALLOUT_FILE_URL = 'https://api.github.com/repos/SohamSaha/Miscellaneous-Bot/contents/quotes.json'
