@@ -4,7 +4,6 @@ import constants as const
 from discord.ext import commands, tasks
 import random
 
-
 miscFunctions = misc()
 client = commands.Bot(command_prefix = "?", case_insensitive=True)
 client.remove_command('help')
@@ -46,8 +45,9 @@ async def londa(ctx):
 
 @client.command()
 async def callout(ctx, target: discord.Member, *, reason):
-    miscFunctions.githubWrite(str(target), str(reason))
     await ctx.send(target.mention + ' has been called out for ' + '_**```diff\n' + '- ' + str(reason) + '```**_')
+    await miscFunctions.githubWrite(str(target), str(reason))
+    
 
 @callout.error
 async def calloutError(ctx,error):
