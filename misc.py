@@ -3,18 +3,16 @@ import constants as const
 from datetime import date, time, datetime
 from github import Github
 
-g = Github(const.GITHUB_USERNAME, const.GITHUB_PASSWORD)
+g = Github(const.GITHUB_TOKEN)
 
 class misc():
 
     def randomDice(self):
-        number = random.randint(0,6)
-        return (str(number))
+        return (str(random.randint(0,6)))
 
     def randomCoin(self):
 
-        flip = random.randint(0,1)
-        if (flip == 0):
+        if (random.randint(0,1) == 0):
             return ('Heads')
         else:
             return ('Tails')
